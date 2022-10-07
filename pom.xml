@@ -30,6 +30,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.baeldung</groupId>
+			<artifactId>evaluation.ratings.lib</artifactId>
+			<version>0.1.0</version>
+		</dependency>
 
 
 		<dependency>

@@ -5,19 +5,17 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import com.baeldung.evaluation.ratings.lib.domain.ReviewableEntity;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Server extends ReviewableEntity {
 
+	private static final long serialVersionUID = -5958316151625992246L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(unique = true, nullable = false, updatable = false)

@@ -1,5 +1,6 @@
 package com.baeldung.evaluation.ratings.restaurant.application;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -17,8 +18,16 @@ public class ServerService {
 		this.repository = repository;
 	}
 
+	public List<Server> fetchAll() {
+		return repository.findAll();
+	}
+
 	public Optional<Server> fetchServer(Long id) {
 		return repository.findById(id);
+	}
+
+	public Server createServer(Server server) {
+		return repository.save(server);
 	}
 
 	public Optional<Server> addReview(Long id, Review review) {

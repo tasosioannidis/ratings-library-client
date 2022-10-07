@@ -2,9 +2,8 @@ package com.baeldung.evaluation.ratings.restaurant.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -12,13 +11,14 @@ import javax.validation.constraints.NotNull;
 import com.baeldung.evaluation.ratings.lib.domain.ReviewableEntity;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class MenuItem extends ReviewableEntity {
 
+	private static final long serialVersionUID = 8137375900444989203L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(unique = true, nullable = false, updatable = false)
 	@NotNull
 	private String code;
 

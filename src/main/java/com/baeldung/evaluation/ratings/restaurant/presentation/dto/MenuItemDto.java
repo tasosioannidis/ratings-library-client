@@ -1,5 +1,7 @@
 package com.baeldung.evaluation.ratings.restaurant.presentation.dto;
 
+import java.util.Objects;
+
 import com.baeldung.evaluation.ratings.lib.presentation.dto.ReviewableDto;
 import com.baeldung.evaluation.ratings.restaurant.domain.MenuItem;
 
@@ -10,7 +12,11 @@ public class MenuItemDto extends ReviewableDto<MenuItem> {
 	private String name;
 	private Double price;
 
-	public MenuItemDto(MenuItem menuItem) {
+	public MenuItemDto() {
+		super(null);
+	}
+
+	private MenuItemDto(MenuItem menuItem) {
 		super(menuItem);
 		this.id = menuItem.getId();
 		this.code = menuItem.getCode();
@@ -32,5 +38,21 @@ public class MenuItemDto extends ReviewableDto<MenuItem> {
 
 	public Double getPrice() {
 		return price;
+	}
+
+	public static class Mapper {
+		public static MenuItem toModel(MenuItemDto dto) {
+			MenuItem model = new MenuItem(dto.code, dto.name, dto.price);
+			if (Objects.nonNull(dto.id)) {
+				model.setId(dto.id);
+			}
+			return model;
+		}
+
+		public static MenuItemDto toDto(MenuItem model) {
+			if (model == null)
+				return null;
+			return new MenuItemDto(model);
+		}
 	}
 }
