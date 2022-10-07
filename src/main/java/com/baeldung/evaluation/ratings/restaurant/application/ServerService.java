@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.baeldung.evaluation.ratings.lib.domain.Review;
 import com.baeldung.evaluation.ratings.restaurant.domain.Server;
 import com.baeldung.evaluation.ratings.restaurant.infrastructure.persistence.ServerRepository;
 
@@ -33,13 +32,4 @@ public class ServerService {
     public Server createServer(Server server) {
         return repository.save(server);
     }
-
-    public Optional<Server> addReview(Long id, Review review) {
-        return repository.findById(id)
-            .map(server -> {
-                server.addReview(review);
-                return repository.save(server);
-            });
-    }
-
 }

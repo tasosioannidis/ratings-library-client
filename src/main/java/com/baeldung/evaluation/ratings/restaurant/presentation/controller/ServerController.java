@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.baeldung.evaluation.ratings.lib.domain.Review;
 import com.baeldung.evaluation.ratings.restaurant.application.ServerService;
 import com.baeldung.evaluation.ratings.restaurant.domain.Server;
 import com.baeldung.evaluation.ratings.restaurant.presentation.dto.ServerDto;
@@ -51,12 +50,4 @@ public class ServerController {
         Server createdModel = this.service.createServer(model);
         return ServerDto.Mapper.toDto(createdModel);
     }
-
-    @PostMapping("/{id}/reviews")
-    public ServerDto addReview(@PathVariable Long id, @RequestBody Review review) {
-        return service.addReview(id, review)
-            .map(ServerDto.Mapper::toDto)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
 }
