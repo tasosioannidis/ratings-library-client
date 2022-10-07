@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "d53d230f-5ff8-464b-977c-3364dd1d6f34",
+		"name": "Eval Tasks - Ratings Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "418131"
+	},
+	"item": [
+		{
+			"name": "Get Menu Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-host}}/menu-items",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"menu-items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Menu Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-host}}/menu-items/1",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"menu-items",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Menu Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"CHEESEBURGER\",\n    \"name\": \"Cheese Burger\",\n    \"price\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/menu-items",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"menu-items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Menu Item - A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 60,\n    \"description\": \"Nothing special\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/menu-items/1/reviews",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"menu-items",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Menu Item - B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 10,\n    \"description\": \"Not good\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/menu-items/1/reviews",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"menu-items",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Servers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-host}}/servers",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"servers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-host}}/servers/4",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"servers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Jerry\",\n    \"lastName\": \"Andrews\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/servers",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"servers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Server - A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 85,\n    \"description\": \"John was really nice, we had a great dinner!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/servers/4/reviews",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"servers",
+						"4",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Server - B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 20,\n    \"description\": \"Not a nice experience!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-host}}/servers/4/reviews",
+					"host": [
+						"{{base-host}}"
+					],
+					"path": [
+						"servers",
+						"4",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
