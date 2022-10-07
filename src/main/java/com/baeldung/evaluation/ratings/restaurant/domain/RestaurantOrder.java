@@ -10,17 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+/**
+ *
+ * @author rozagerardo
+ */
 @Entity
 public class RestaurantOrder {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Server server;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Server server;
 
-	@ManyToMany
-	private List<MenuItem> menuItems;
+    @ManyToMany
+    private List<MenuItem> menuItems;
 
 }

@@ -16,38 +16,47 @@ import com.baeldung.evaluation.ratings.restaurant.application.ServerService;
 import com.baeldung.evaluation.ratings.restaurant.domain.Server;
 import com.baeldung.evaluation.ratings.restaurant.presentation.dto.ServerDto;
 
+/**
+ *
+ * @author rozagerardo
+ */
 @RestController
 @RequestMapping(value = "/servers")
 public class ServerController {
 
-	private ServerService service;
+    private ServerService service;
 
-	public ServerController(ServerService service) {
-		this.service = service;
-	}
+    public ServerController(ServerService service) {
+        this.service = service;
+    }
 
-	@GetMapping
-	public List<ServerDto> getList() {
-		return service.fetchAll().stream().map(ServerDto.Mapper::toDto).toList();
-	}
+    @GetMapping
+    public List<ServerDto> getList() {
+        return service.fetchAll()
+            .stream()
+            .map(ServerDto.Mapper::toDto)
+            .toList();
+    }
 
-	@GetMapping("/{id}")
-	public ServerDto getById(@PathVariable Long id) {
-		return service.fetchServer(id).map(ServerDto.Mapper::toDto)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-	}
+    @GetMapping("/{id}")
+    public ServerDto getById(@PathVariable Long id) {
+        return service.fetchServer(id)
+            .map(ServerDto.Mapper::toDto)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
 
-	@PostMapping
-	public ServerDto create(@RequestBody ServerDto newServer) {
-		Server model = ServerDto.Mapper.toModel(newServer);
-		Server createdModel = this.service.createServer(model);
-		return ServerDto.Mapper.toDto(createdModel);
-	}
+    @PostMapping
+    public ServerDto create(@RequestBody ServerDto newServer) {
+        Server model = ServerDto.Mapper.toModel(newServer);
+        Server createdModel = this.service.createServer(model);
+        return ServerDto.Mapper.toDto(createdModel);
+    }
 
-	@PostMapping("/{id}/reviews")
-	public ServerDto addReview(@PathVariable Long id, @RequestBody Review review) {
-		return service.addReview(id, review).map(ServerDto.Mapper::toDto)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-	}
+    @PostMapping("/{id}/reviews")
+    public ServerDto addReview(@PathVariable Long id, @RequestBody Review review) {
+        return service.addReview(id, review)
+            .map(ServerDto.Mapper::toDto)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
 
 }

@@ -10,81 +10,85 @@ import javax.validation.constraints.NotNull;
 
 import com.baeldung.evaluation.ratings.lib.domain.ReviewableEntity;
 
+/**
+ *
+ * @author rozagerardo
+ */
 @Entity
 public class MenuItem extends ReviewableEntity {
 
-	private static final long serialVersionUID = 8137375900444989203L;
+    private static final long serialVersionUID = 8137375900444989203L;
 
-	@Id
-	private Long id;
+    @Id
+    private Long id;
 
-	@Column(unique = true, nullable = false, updatable = false)
-	@NotNull
-	private String code;
+    @Column(unique = true, nullable = false, updatable = false)
+    @NotNull
+    private String code;
 
-	@NotNull
-	private String name;
+    @NotNull
+    private String name;
 
-	@NotNull
-	@Min(0)
-	private Double price;
+    @NotNull
+    @Min(0)
+    private Double price;
 
-	MenuItem() {
-	}
+    MenuItem() {
+    }
 
-	public MenuItem(String code, String name, Double price) {
-		super();
-		this.code = code;
-		this.name = name;
-		this.price = price;
-	}
+    public MenuItem(String code, String name, Double price) {
+        super();
+        this.code = code;
+        this.name = name;
+        this.price = price;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Double getPrice() {
-		return price;
-	}
+    public Double getPrice() {
+        return price;
+    }
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(code);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MenuItem other = (MenuItem) obj;
-		return Objects.equals(code, other.code);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        MenuItem other = (MenuItem) obj;
+        return Objects.equals(code, other.code);
+    }
 }
