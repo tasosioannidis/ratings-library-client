@@ -2,13 +2,14 @@ package com.baeldung.evaluation.ratings.restaurant.presentation.dto;
 
 import java.util.Objects;
 
+import com.baeldung.evaluation.ratings.lib.presentation.dto.ReviewableDto;
 import com.baeldung.evaluation.ratings.restaurant.domain.MenuItem;
 
 /**
  *
  * @author rozagerardo
  */
-public class MenuItemDto {
+public class MenuItemDto extends ReviewableDto<MenuItem> {
 
     private Long id;
     private String code;
@@ -16,13 +17,15 @@ public class MenuItemDto {
     private Double price;
 
     public MenuItemDto() {
+        super(null);
     }
 
-    public MenuItemDto(Long id, String code, String name, Double price) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.price = price;
+    private MenuItemDto(MenuItem menuItem) {
+        super(menuItem);
+        this.id = menuItem.getId();
+        this.code = menuItem.getCode();
+        this.name = menuItem.getName();
+        this.price = menuItem.getPrice();
     }
 
     public Long getId() {
@@ -53,7 +56,7 @@ public class MenuItemDto {
         public static MenuItemDto toDto(MenuItem model) {
             if (model == null)
                 return null;
-            return new MenuItemDto(model.getId(), model.getCode(), model.getName(), model.getPrice());
+            return new MenuItemDto(model);
         }
     }
 }

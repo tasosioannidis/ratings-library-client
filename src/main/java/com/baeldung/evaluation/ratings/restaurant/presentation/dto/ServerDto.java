@@ -2,25 +2,28 @@ package com.baeldung.evaluation.ratings.restaurant.presentation.dto;
 
 import java.util.Objects;
 
+import com.baeldung.evaluation.ratings.lib.presentation.dto.ReviewableDto;
 import com.baeldung.evaluation.ratings.restaurant.domain.Server;
 
 /**
  *
  * @author rozagerardo
  */
-public class ServerDto {
+public class ServerDto extends ReviewableDto<Server> {
 
     private Long id;
     private String firstName;
     private String lastName;
 
     private ServerDto() {
+        super(null);
     }
 
-    private ServerDto(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    private ServerDto(Server server) {
+        super(server);
+        this.id = server.getId();
+        this.firstName = server.getFirstName();
+        this.lastName = server.getLastName();
     }
 
     public Long getId() {
@@ -47,7 +50,7 @@ public class ServerDto {
         public static ServerDto toDto(Server model) {
             if (model == null)
                 return null;
-            return new ServerDto(model.getId(), model.getFirstName(), model.getLastName());
+            return new ServerDto(model);
         }
     }
 }

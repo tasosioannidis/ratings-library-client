@@ -10,12 +10,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import com.baeldung.evaluation.ratings.lib.domain.ReviewableEntity;
+
 /**
  *
  * @author rozagerardo
  */
 @Entity
-public class Server {
+public class Server extends ReviewableEntity {
+
+    private static final long serialVersionUID = -5958316151625992246L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
