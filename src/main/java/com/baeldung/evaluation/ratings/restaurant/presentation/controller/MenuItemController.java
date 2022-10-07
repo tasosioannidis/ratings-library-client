@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.baeldung.evaluation.ratings.lib.domain.Review;
 import com.baeldung.evaluation.ratings.restaurant.application.MenuItemService;
 import com.baeldung.evaluation.ratings.restaurant.domain.MenuItem;
 import com.baeldung.evaluation.ratings.restaurant.presentation.dto.MenuItemDto;
@@ -51,12 +50,4 @@ public class MenuItemController {
         MenuItem createdModel = this.service.createServer(model);
         return MenuItemDto.Mapper.toDto(createdModel);
     }
-
-    @PostMapping("/{id}/reviews")
-    public MenuItemDto addReview(@PathVariable Long id, @RequestBody Review review) {
-        return service.addReview(id, review)
-            .map(MenuItemDto.Mapper::toDto)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
 }

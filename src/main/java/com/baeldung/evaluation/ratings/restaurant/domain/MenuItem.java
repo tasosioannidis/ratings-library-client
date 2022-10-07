@@ -8,16 +8,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import com.baeldung.evaluation.ratings.lib.domain.ReviewableEntity;
-
 /**
  *
  * @author rozagerardo
  */
 @Entity
-public class MenuItem extends ReviewableEntity {
-
-    private static final long serialVersionUID = 8137375900444989203L;
+public class MenuItem {
 
     @Id
     private Long id;
