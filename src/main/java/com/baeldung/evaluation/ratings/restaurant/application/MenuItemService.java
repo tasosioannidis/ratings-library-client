@@ -30,6 +30,7 @@ public class MenuItemService {
         return repository.findById(id);
     }
 
+    // todo fix
     public MenuItem createServer(MenuItem menuItem) {
         return repository.save(menuItem);
     }
